@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
 import App from './App';
+import { StateProvider, reducer } from './state';
+import initialState from './state/initial';
 import * as serviceWorker from './serviceWorker';
 
+const history = createBrowserHistory();
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <StateProvider initialState={initialState} reducer={reducer}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </StateProvider>,
   document.getElementById('root')
 );
 

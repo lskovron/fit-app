@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch, withRouter } from "react-router";
+import Container from '@material-ui/core/Container';
 
-function App() {
+import Questionnaire from './components/Assessment/Questionnaire';
+import Results from './components/Results/Results';
+import LandingPage from './components/LandingPage';
+
+const App = ({ location, history }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container maxWidth="sm">
+        <Switch>
+          <Route exact path='/' render={LandingPage} />
+          <Route path='/assessment' render={Questionnaire} />
+          <Route path='/results' render={Results} />
+        </Switch>
+      </Container>
+    </>
   );
 }
 
-export default App;
+export default withRouter(App);
