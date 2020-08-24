@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { withRouter } from 'react-router';
 
+import { postsUrl } from 'Config';
+
 const SaveResults = ({history}) => {
 
     function toQueryString(obj) {
@@ -13,7 +15,7 @@ const SaveResults = ({history}) => {
         return parts.join("&");
     }
     useEffect(() => {
-        window.location = `http://localhost:8888/fit-backend/results?${toQueryString(args)}`
+        window.location = `${postsUrl}/results?${toQueryString(args)}`
     }, [])
 
     let args = {

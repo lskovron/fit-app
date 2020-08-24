@@ -5,9 +5,11 @@ import { useStateValue } from '../../state';
 import { ASSESSMENT_ORDER } from '../../constants.js'
 import Question from './Question';
 import { withRouter } from 'react-router';
+import { Button } from '@material-ui/core';
+import { postsUrl } from '../Config';
 
 const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => {
-    const [{answers}, setState] = useStateValue();
+    const [{answers}] = useStateValue();
 
     const currentDimension = ASSESSMENT_ORDER[currentDimensionIndex];
     const [subdimentions, setSubdimentions] = useState(null);
@@ -18,9 +20,15 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
 
     useEffect(()=>{
         fetchQuestions();
+        // eslint-disable-next-line
     },[currentDimension])
 
     const nextSection = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
         setCanContinue(false);
         if( subdimentions.length > currentSubdimentionIndex + 1){
             setCurrentSubdimentionIndex(currentSubdimentionIndex+1);
@@ -33,7 +41,7 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
 
     const fetchQuestions = () => {
         setLoading(true);
-        let url = `http://localhost:8888/fit-backend/wp-json/wp/v2/${currentDimension}?orderby=menu_order&order=asc`;
+        let url = `${postsUrl}/wp-json/wp/v2/${currentDimension}?orderby=menu_order&order=asc`;
         fetch(url, {
             method: 'GET'
         })
@@ -83,7 +91,13 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
                 </div>
             ) : (
                 <>
-                    <h2>{subdimentions[currentSubdimentionIndex].title.rendered}</h2>
+                    <p style={{fontStyle:'italic',fontSize:12}}>
+                    There are no right or wrong answers so please answer these candidly.  Please rate how true
+                    the following statements are for you on a scale of 1-5:</p>
+                    <p style={{fontStyle:'italic',fontSize:12,textAlign:'center'}}>
+                    <b>1</b> = absolutely untrue; <b>2</b> = Mostly untrue; <b>3</b> = neither true nor untrue; <b>4</b> = Mostly true; <b>5</b> = absolutely
+                    true
+                    </p>
                     {subdimentions[currentSubdimentionIndex].acf.questions.map((q,i)=>{
                         return (
                             <Question 
@@ -99,7 +113,7 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
                         );
                     })}
                     <div style={{marginTop:20}}>
-                        <button disabled={!canContinue} onClick={nextSection}>Next one!</button>
+                        <Button variant="contained" disabled={!canContinue} onClick={nextSection}>Continue</Button>
                     </div>
                 </>
             )}
