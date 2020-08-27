@@ -1,6 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
+import cog from '../../assets/cog.svg';
+import emo from '../../assets/emo.svg';
+import phy from '../../assets/phy.svg';
+import fin from '../../assets/fin.svg';
+import spi from '../../assets/spi.svg';
 import { ASSESSMENT_ORDER } from '../../constants.js'
 
 const useStyles = makeStyles(()=>({
@@ -13,13 +18,48 @@ const useStyles = makeStyles(()=>({
         width: '17%',
         margin: '0 1%',
         height: 5,
-        background: '#ccc'
+        // background: '#ccc',
+        '& img': {
+            filter: 'grayscale(1)',
+            opacity: .4,
+            width: 70
+        }
     },
-    cog: {background:'#c5e3fa'},
-    emo: {background:'#79bdf2'},
-    phy: {background:'#1e7ce1'},
-    fin: {background:'#0140c9'},
-    spi: {background:'#02188d'}
+    cog: {
+        // background:'#c5e3fa',
+        '& img': {
+            filter: 'none',
+            opacity: 1,
+        }
+    },
+    emo: {
+        // background:'#79bdf2',
+        '& img': {
+            filter: 'none',
+            opacity: 1,
+        }
+    },
+    phy: {
+        // background:'#1e7ce1',
+        '& img': {
+            filter: 'none',
+            opacity: 1,
+        }
+    },
+    fin: {
+        // background:'#0140c9',
+        '& img': {
+            filter: 'none',
+            opacity: 1,
+        }
+    },
+    spi: {
+        // background:'#02188d',
+        '& img': {
+            filter: 'none',
+            opacity: 1,
+        }
+    }
 }))
 
 const ProgressBar = ({currentDimensionIndex}) => {
@@ -38,7 +78,11 @@ const ProgressBar = ({currentDimensionIndex}) => {
                     ? classes.phy : i===3 && currentDimensionIndex >= i 
                     ? classes.fin : i===4 && currentDimensionIndex >= i 
                     ? classes.spi : ''}`}>
-
+                        { i === 0 && <img src={cog} alt="dimension logo" />}
+                        { i === 1 && <img src={emo} alt="dimension logo" />}
+                        { i === 2 && <img src={phy} alt="dimension logo" />}
+                        { i === 3 && <img src={fin} alt="dimension logo" />}
+                        { i === 4 && <img src={spi} alt="dimension logo" />}    
                     </div>
                 )
             })}
