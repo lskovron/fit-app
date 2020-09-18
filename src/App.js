@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router";
 
+import './App.css';
 import Questionnaire from './components/Assessment/Questionnaire';
 import Results from './components/Results/Results';
 import LandingPage from './components/LandingPage';
