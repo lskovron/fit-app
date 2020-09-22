@@ -17,8 +17,13 @@ const Results = ({history}) =>  {
     weight,
     height,
     gender,
-    occupation,
-    marital
+    marital,
+    family,
+    ethnicity,
+    education,
+    language,
+    employment,
+    location
   }] = useStateValue();
 
   let average = array => {
@@ -62,7 +67,22 @@ const Results = ({history}) =>  {
 }
 
 const addDemoData = obj => {
-  [{'participant': name}, {email: email}, {age: age}, {income: income}, {weight: weight}, {height: height}, {gender: gender}, {occupation: occupation}, {marital: marital}].forEach((demo)=> {
+  [
+    {'participant': name}, 
+    {email: email}, 
+    {age: age}, 
+    {income: income}, 
+    {weight: weight}, 
+    {height: height}, 
+    {gender: gender}, 
+    {education: education}, 
+    {marital: marital},
+    {family: family},
+    {ethnicity: ethnicity},
+    {language: language},
+    {employment: employment},
+    {location: location}
+  ].forEach((demo)=> {
     let key = Object.keys(demo)[0];
     if(demo[key] !== ''){
       obj[key] = demo[key]

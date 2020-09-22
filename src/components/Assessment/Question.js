@@ -13,12 +13,20 @@ const useStyles = makeStyles((theme)=>({
         margin: '30px 0 50px',
         '& .MuiFormLabel-root.Mui-focused': {
             color: 'rgba(0, 0, 0, 0.54)'
+        },
+        '& .MuiRadio-colorSecondary.Mui-checked': {
+            color:'#79bdf2'
+        },
+        '& .MuiIconButton-colorSecondary:hover': {
+            background: 'rgba(121, 189, 242,.08)'
         }
     },
     question: {
         fontWeight: 700,
         display: 'block',
-        paddingBottom: 15
+        paddingBottom: 15,
+        fontSize: 22,
+        color: '#576a7c'
     }
 }))
 
@@ -57,16 +65,16 @@ const Question = ({text,reverse,subdimension,dimension,index,totalQs,setCanConti
 
     return (
         <div className={classes.questionContainer}>  
-            <FormControl component="fieldset">
+            <FormControl component="fieldset" style={{display:'block'}}>
                 <FormLabel component="legend" className={classes.question}>{text}</FormLabel>
                 <RadioGroup row aria-label="Marital Status" name="marital" value={answer} onChange={selectAnswer}>
-                    <FormControlLabel labelPlacement="top" value={reverse ? 5 : 1} control={<Radio />} label="1" />
-                    <FormControlLabel labelPlacement="top" value={reverse ? 4 : 2} control={<Radio />} label="2" />
-                    <FormControlLabel labelPlacement="top" value={reverse ? 3 : 3} control={<Radio />} label="3" />
-                    <FormControlLabel labelPlacement="top" value={reverse ? 2 : 4} control={<Radio />} label="4" />
-                    <FormControlLabel labelPlacement="top" value={reverse ? 1 : 5} control={<Radio />} label="5" />
-                    <strong style={{margin: 20,marginBottom:0,fontStyle: 'italic'}}>  or  </strong>
-                    <FormControlLabel labelPlacement="top" value="skip" control={<Radio />} label={`I prefer not to answer`} />
+                    <FormControlLabel labelPlacement="bottom" value={reverse ? 5 : 1} control={<Radio />} label="1" />
+                    <FormControlLabel labelPlacement="bottom" value={reverse ? 4 : 2} control={<Radio />} label="2" />
+                    <FormControlLabel labelPlacement="bottom" value={reverse ? 3 : 3} control={<Radio />} label="3" />
+                    <FormControlLabel labelPlacement="bottom" value={reverse ? 2 : 4} control={<Radio />} label="4" />
+                    <FormControlLabel labelPlacement="bottom" value={reverse ? 1 : 5} control={<Radio />} label="5" />
+                    <div style={{margin:'25px 40px 0px',flexGrow:1,borderTop:'1px solid #a0a9b3'}}></div>
+                    <FormControlLabel labelPlacement="bottom" value="skip" control={<Radio />} label={`n/a`} />
                 </RadioGroup>
             </FormControl>
         </div>

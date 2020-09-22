@@ -5,11 +5,35 @@ import { useStateValue } from '../../state';
 import { ASSESSMENT_ORDER } from '../../constants.js'
 import Question from './Question';
 import { withRouter } from 'react-router';
-import { Button } from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
 import { postsUrl } from '../Config';
+
+const useStyles = makeStyles(()=>({
+    button: {
+        display: 'block',
+        margin: '0 auto',
+        fontSize: 35,
+        fontFamily: 'Xaloc,serif',
+        padding: '0 50px',
+        borderRadius: 20,
+        color: 'white',
+        textTransform: 'none',
+        fontWeight: 700,
+        background: '#79bdf2',
+        '&:hover': {
+            background: '#1e7ce1'
+        },
+        '&:disabled': {
+            background:'#a0a9b3',
+            color: 'white',
+        },
+        marginBottom: 50
+    }
+}))
 
 const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => {
     const [{answers}] = useStateValue();
+    const classes = useStyles();
 
     const currentDimension = ASSESSMENT_ORDER[currentDimensionIndex];
     const [subdimentions, setSubdimentions] = useState(null);
@@ -91,13 +115,6 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
                 </div>
             ) : (
                 <>
-                    <p style={{fontStyle:'italic',fontSize:12}}>
-                    There are no right or wrong answers so please answer these candidly.  Please rate how true
-                    the following statements are for you on a scale of 1-5:</p>
-                    <p style={{fontStyle:'italic',fontSize:12,textAlign:'center'}}>
-                    <b>1</b> = absolutely untrue; <b>2</b> = Mostly untrue; <b>3</b> = neither true nor untrue; <b>4</b> = Mostly true; <b>5</b> = absolutely
-                    true
-                    </p>
                     {subdimentions[currentSubdimentionIndex].acf.questions.map((q,i)=>{
                         return (
                             <Question 
@@ -113,7 +130,7 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
                         );
                     })}
                     <div style={{marginTop:20}}>
-                        <Button variant="contained" disabled={!canContinue} onClick={nextSection}>Continue</Button>
+                        <Button variant="contained" disabled={!canContinue} onClick={nextSection} className={classes.button}>Continue</Button>
                     </div>
                 </>
             )}

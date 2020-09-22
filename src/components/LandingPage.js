@@ -15,6 +15,7 @@ import Header from './Header';
 import { postsUrl } from './Config';
 import { makeStyles } from '@material-ui/core';
 import SubFooter from './SubFooter';
+import Footer from './Footer';
 
 const useStyles = makeStyles(()=>({
     contentWrap: {
@@ -269,6 +270,7 @@ const LandingPage = ({history}) => {
                 </div>
             )}
             <SubFooter />
+            <Footer />
         </>
     )
 }
