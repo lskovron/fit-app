@@ -51,7 +51,7 @@ const SaveResults = ({history}) => {
         'f-long-term' : 9,
         'f-short-term' : 10,
         'f-sadness' : 11,
-        'f-hapiness' : 12,
+        'f-happiness' : 12,
     
         's-spiritual-1' : 9,
         's-spiritual-2' : 10,

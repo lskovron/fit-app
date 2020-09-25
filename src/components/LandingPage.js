@@ -28,7 +28,8 @@ const useStyles = makeStyles(()=>({
         marginBottom: 40,
         '& p': {
             fontSize: 20,
-            lineHeight: 1.4
+            lineHeight: 1.4,
+            color: '#a0a9b3'
         }
     },
     secondaryContent: {
@@ -38,7 +39,8 @@ const useStyles = makeStyles(()=>({
         },
         '& p': {
             fontSize: 20,
-            lineHeight: 1.4
+            lineHeight: 1.4,
+            color: '#a0a9b3'
         },
         '& a': {
             textTransform: 'uppercase',
@@ -75,8 +77,9 @@ const useStyles = makeStyles(()=>({
     subColors: {
         fontWeight: 700,
         display: 'inline-block',
-        padding: '5px 30px 8px 0',
-        fontSize: 12
+        padding: '5px 20px 8px 0',
+        fontSize: 15,
+        fontFamily: 'Open Sans Condensed'
     },
     imgWrap: {
         paddingRight: 10,
@@ -88,17 +91,18 @@ const useStyles = makeStyles(()=>({
     dimensionContent: {
         fontSize: 22,
         marginTop: 10,
-        lineHeight: 1.5
+        lineHeight: 1.5,
+        color: '#a0a9b3'
     },
     subHeader: {
         fontWeight: 'bold',
-        fontFamily: 'DIN Pro, lato, sans-serif',
+        fontFamily: 'Open Sans, lato, sans-serif',
         textTransform: 'uppercase',
         marginTop: 30,
         marginBottom: 0,
         '& span': {
             color: '#576a7c!important',
-            fontFamily: 'Xaloc',
+            fontFamily: 'Libre Baskerville',
             textTransform: 'none',
         }
     },
@@ -107,7 +111,7 @@ const useStyles = makeStyles(()=>({
         marginTop: 60,
         textAlign: 'center',
         fontSize: '1rem',
-        fontFamily: 'DIN Pro, lato, sans-serif',
+        fontFamily: 'Open Sans, lato, sans-serif',
         fontWeight: 900,
         '&:after': {
             content: "''",
@@ -121,7 +125,7 @@ const useStyles = makeStyles(()=>({
         display: 'block',
         margin: '0 auto',
         fontSize: 50,
-        fontFamily: 'Xaloc,serif',
+        fontFamily: 'Libre Baskerville,serif',
         padding: '0 50px',
         borderRadius: 20,
         color: 'white',
@@ -222,28 +226,28 @@ const LandingPage = ({history}) => {
                     </div>
                     <Grid container className={classes.secondaryContent} spacing={5}>
                         <Grid item sm={4} style={{display: 'flex',flexDirection: 'row',alignItems: 'center'}}>
-                            <img src={content.circumplex} alt="circumplex example image" width="100%" />
+                            <img src={content.circumplex} alt="circumplex example" width="100%" />
                         </Grid>
                         <Grid item sm={8}>
                             <div className={classes.imgRow}>
                                 <span style={{color: COLORS.cognitive[6]}}>COGNITIVE</span>
-                                <img src={cog} alt="dimension icon" />
+                                <img src={cog} alt="dimension" />
                             </div>
                             <div className={classes.imgRow}>
                                 <span style={{color: COLORS.physical[5]}}>PHYSICAL</span>
-                                <img src={phy} alt="dimension icon" />
+                                <img src={phy} alt="dimension" />
                             </div>
                             <div className={classes.imgRow}>
                                 <span style={{color: COLORS.spiritual[6]}}>SPIRITUALITY</span>
-                                <img src={spi} alt="dimension icon" />
+                                <img src={spi} alt="dimension" />
                             </div>
                             <div className={classes.imgRow}>
                                 <span style={{color: COLORS.emotional[6]}}>EMOTIONAL</span>
-                                <img src={emo} alt="dimension icon" />
+                                <img src={emo} alt="dimension" />
                             </div>
                             <div className={classes.imgRow}>
                                 <span style={{color: COLORS.financial[6]}}>FINANCIAL</span>
-                                <img src={fin} alt="dimension icon" />
+                                <img src={fin} alt="dimension" />
                             </div>
                             {ReactHtmlParser(content.secondary) }
                         </Grid>
@@ -254,7 +258,7 @@ const LandingPage = ({history}) => {
                             <h3 className={classes.subHeader} style={{color:COLORS[dim.key][6]}}><span>{numerals[i]}.</span> {dim.title}</h3>
                             <Grid container spacing={2} style={{display: 'flex',flexDirection: 'row',alignItems: 'center'}}>
                                 <Grid item sm={2}>
-                                    <div className={classes.imgWrap}><img src={dim.img} alt="dim image" /></div>
+                                    <div className={classes.imgWrap}><img src={dim.img} alt="dim" /></div>
                                 </Grid>
                                 <Grid item sm={10} style={{margin: '20px 0',paddingLeft:20,borderLeft: '1px solid',borderColor: COLORS[dim.key][6]}}>
                                     <p className={classes.dimensionContent}>{dim.content}</p>

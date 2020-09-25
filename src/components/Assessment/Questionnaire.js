@@ -19,7 +19,7 @@ const Questionnaire = () => {
                 <h1 style={{textAlign:'center',marginBottom:30}}>Assessment</h1>
                 <h2 style={{
                     textAlign: 'center',
-                    fontFamily: 'DIN Pro, lato, sans-serif',
+                    fontFamily: 'Open Sans, lato, sans-serif',
                     fontSize: '1.8rem',
                     margin: '50px 0',
                     color: COLORS[ASSESSMENT_ORDER[currentDimensionIndex]][6]

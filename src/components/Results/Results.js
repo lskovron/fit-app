@@ -117,7 +117,9 @@ function randomNumber(min, max) {
   }, [])
 
   return (
-    <CircularProgress />
+    <section style={{textAlign: 'center',padding:'80px 50px'}}>
+      <CircularProgress />
+    </section>
   );
 }
 

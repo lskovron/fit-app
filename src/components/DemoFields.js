@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { withRouter } from 'react-router';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
@@ -74,7 +74,7 @@ const useStyles = makeStyles(()=>({
         display: 'block',
         margin: '0 auto',
         fontSize: 35,
-        fontFamily: 'Xaloc,serif',
+        fontFamily: 'Libre Baskerville,serif',
         padding: '0 50px',
         borderRadius: 20,
         color: 'white',
@@ -158,6 +158,14 @@ const DemoFields = ({history}) => {
     const validateName = () => {
         setInvalidName(name === '');
     }
+
+    useEffect(()=>{
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    },[])
 
     return (
         <>

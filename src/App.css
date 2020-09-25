@@ -1,92 +1,17 @@
-/* FONTS */
-@font-face { 
-  font-family: Xaloc; 
-  src: url("/fonts/XalocText.otf") format('opentype'); 
-  src: url("/fonts/XalocText.ttf") format('ttf'); 
-  font-weight: normal; 
-}
-@font-face { 
-  font-family: Xaloc; 
-  src: url("/fonts/XalocText-Italic.otf") format('opentype'); 
-  src: url("/fonts/XalocText-Italic.ttf") format('ttf'); 
-  font-style: italic; 
-}
-@font-face { 
-  font-family: Xaloc; 
-  src: url("/fonts/XalocText-Bold.otf") format('opentype'); 
-  src: url("/fonts/XalocText-Bold.ttf") format('ttf'); 
-  font-weight: 700; 
-}
-@font-face { 
-  font-family: Xaloc; 
-  src: url("/fonts/XalocText-Heavy.otf") format('opentype'); 
-  src: url("/fonts/XalocText-Heavy.ttf") format('ttf'); 
-  font-weight: 900; 
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap');
 
-@font-face { 
-  font-family: Xaloc; 
-  src: url("/fonts/XalocText-BoldItalic.otf") format('opentype'); 
-  src: url("/fonts/XalocText-BoldItalic.ttf") format('ttf'); 
-  font-style: italic; 
-  font-weight: 700; 
-}
-@font-face { 
-  font-family: Xaloc; 
-  src: url("/fonts/XalocText-HeavyItalic.otf") format('opentype'); 
-  src: url("/fonts/XalocText-HeavyItalic.ttf") format('ttf'); 
-  font-style: italic; 
-  font-weight: 900; 
-}
-
-@font-face { 
-  font-family: 'DIN Pro'; 
-  src: url("/fonts/DINPro-Medium.ttf") format('ttf'); 
-  font-weight: normal; 
-  font-weight: 400;
-}
-
-@font-face { 
-  font-family: 'DIN Pro'; 
-  src: url("/fonts/DINPro-Italic.ttf") format('ttf'); 
-  font-style: italic; 
-  font-weight: 400;
-}
-
-@font-face { 
-  font-family: 'DIN Pro'; 
-  src: url("/fonts/DINProBold700.ttf") format('ttf'); 
-  font-weight: 700; 
-}
-
-@font-face { 
-  font-family: 'DIN Pro'; 
-  src: url("/fonts/DINProBlack900.ttf") format('ttf'); 
-  font-weight: 900; 
-}
-
-@font-face { 
-  font-family: 'DIN Pro'; 
-  src: url("/fonts/DINProBoldItalic700.ttf") format('ttf'); 
-  font-style: italic; 
-  font-weight: 700; 
-}
-@font-face { 
-  font-family: 'DIN Pro'; 
-  src: url("/fonts/DINProBlackItalic900.ttf") format('ttf'); 
-  font-style: italic; 
-  font-weight: 900; 
-}
 
 body { 
   font-size: 16px; 
-  font-family: 'DIN Pro', lato, sans-serif; 
+  font-family: 'Open Sans', lato, sans-serif; 
   color: #576a7c;
   background: #efefef;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Xaloc", serif;
+  font-family: "Libre Baskerville", serif;
   margin: .25em 0 .25em;
   color: #576a7c;
 }

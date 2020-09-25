@@ -13,7 +13,7 @@ const useStyles = makeStyles(()=>({
         display: 'block',
         margin: '0 auto',
         fontSize: 35,
-        fontFamily: 'Xaloc,serif',
+        fontFamily: 'Libre Baskerville,serif',
         padding: '0 50px',
         borderRadius: 20,
         color: 'white',
@@ -44,15 +44,16 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
 
     useEffect(()=>{
         fetchQuestions();
-        // eslint-disable-next-line
-    },[currentDimension])
-
-    const nextSection = () => {
         window.scrollTo({
             top: 0,
             left: 0,
             behavior: 'smooth'
         });
+        // eslint-disable-next-line
+    },[currentDimension])
+
+    const nextSection = () => {
+
         setCanContinue(false);
         if( subdimentions.length > currentSubdimentionIndex + 1){
             setCurrentSubdimentionIndex(currentSubdimentionIndex+1);
