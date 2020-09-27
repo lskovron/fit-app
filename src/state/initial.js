@@ -20,6 +20,7 @@ export default {
     marital: '',
     ethnicity: '',
     education: '',
-    employment: ''
+    employment: '',
+    progress: 0
 };
   

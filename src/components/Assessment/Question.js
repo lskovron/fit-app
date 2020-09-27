@@ -66,7 +66,7 @@ const Question = ({text,reverse,subdimension,dimension,index,totalQs,setCanConti
     return (
         <div className={classes.questionContainer}>  
             <FormControl component="fieldset" style={{display:'block'}}>
-                <FormLabel component="legend" className={classes.question}>{text}</FormLabel>
+                <FormLabel component="legend" className={classes.question}>{index+1}. {text}</FormLabel>
                 <RadioGroup row aria-label="Marital Status" name="marital" value={answer} onChange={selectAnswer}>
                     <FormControlLabel labelPlacement="bottom" value={reverse ? 5 : 1} control={<Radio />} label="1" />
                     <FormControlLabel labelPlacement="bottom" value={reverse ? 4 : 2} control={<Radio />} label="2" />

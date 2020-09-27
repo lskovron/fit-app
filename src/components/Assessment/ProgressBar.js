@@ -7,11 +7,18 @@ import phy from '../../assets/phy.svg';
 import fin from '../../assets/fin.svg';
 import spi from '../../assets/spi.svg';
 import { ASSESSMENT_ORDER } from '../../constants.js'
+import { useStateValue } from '../../state';
 
 const useStyles = makeStyles(()=>({
     progressWrapper: {
         display: 'block',
         textAlign: 'center'
+    },
+    totalProgress: {
+        textAlign: 'right',
+        fontFamily: 'Open Sans Condensed,Open Sans, sans-serif',
+        fontSize: 10,
+        marginRight: '8%'
     },
     progressSegment: {
         display: 'inline-block',
@@ -64,11 +71,13 @@ const useStyles = makeStyles(()=>({
 
 const ProgressBar = ({currentDimensionIndex}) => {
     const classes = useStyles();
+    const [{progress}] = useStateValue();
 
-    console.log(classes.dimColors);
+    const percentageProgress = (progress*100)/29;
 
     return (
         <div className={classes.progressWrapper}>
+            <div className={classes.totalProgress}>{parseInt(percentageProgress)}% complete</div>
             {ASSESSMENT_ORDER.map((dim,i)=>{
                 return (
                     <div key={i} className={`${classes.progressSegment}
@@ -79,9 +88,9 @@ const ProgressBar = ({currentDimensionIndex}) => {
                     ? classes.fin : i===4 && currentDimensionIndex >= i 
                     ? classes.spi : ''}`}>
                         { i === 0 && <img src={cog} alt="dimension logo" />}
-                        { i === 1 && <img src={emo} alt="dimension logo" />}
-                        { i === 2 && <img src={phy} alt="dimension logo" />}
-                        { i === 3 && <img src={fin} alt="dimension logo" />}
+                        { i === 1 && <img src={phy} alt="dimension logo" />}
+                        { i === 2 && <img src={fin} alt="dimension logo" />}
+                        { i === 3 && <img src={emo} alt="dimension logo" />}
                         { i === 4 && <img src={spi} alt="dimension logo" />}    
                     </div>
                 )

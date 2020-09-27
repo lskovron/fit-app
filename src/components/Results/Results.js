@@ -41,7 +41,7 @@ const Results = ({history}) =>  {
         let arr = results[sub][property].filter(item => item !== 'skip')
         if(arr.length){
           let key = `${sub.substr(0,1)}-${property}`;
-          let avg = average(arr)*4;
+          let avg = average(arr)*20;
           urlObj[key] = avg;
           dimTotal.push(avg);
           grandTotal.push(avg);

@@ -1,4 +1,4 @@
-export const ASSESSMENT_ORDER = ['cognitive','emotional','physical','financial','spiritual'];
+export const ASSESSMENT_ORDER = ['cognitive','physical','financial','emotional','spiritual'];
 
 export const COLORS = {
     cognitive: [ //oranges

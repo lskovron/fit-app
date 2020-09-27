@@ -32,7 +32,7 @@ const useStyles = makeStyles(()=>({
 }))
 
 const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => {
-    const [{answers}] = useStateValue();
+    const [{answers,progress},setState] = useStateValue();
     const classes = useStyles();
 
     const currentDimension = ASSESSMENT_ORDER[currentDimensionIndex];
@@ -42,17 +42,23 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
 
     const [loading, setLoading] = useState(true)
 
-    useEffect(()=>{
-        fetchQuestions();
+    const scrollToTop = (pxOffset = 0) => {
         window.scrollTo({
-            top: 0,
+            top: pxOffset,
             left: 0,
             behavior: 'smooth'
         });
+    }
+
+    useEffect(()=>{
+        fetchQuestions();
+        scrollToTop();
         // eslint-disable-next-line
     },[currentDimension])
 
     const nextSection = () => {
+        scrollToTop(200);
+        setState({progress: progress+1});
 
         setCanContinue(false);
         if( subdimentions.length > currentSubdimentionIndex + 1){
@@ -73,7 +79,6 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
         .then( response => response.json() )
         .then( response => {
             setLoading(false);
-            console.log(response);
             setCurrentSubdimentionIndex(0);
             setSubdimentions(response);
             setupAnswerObj(response);

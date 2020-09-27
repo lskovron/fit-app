@@ -68,7 +68,8 @@ const useStyles = makeStyles(()=>({
         '& span': {
             fontWeight: 700,
             fontSize: 10,
-            display: 'block'
+            display: 'block',
+            fontFamily: 'Open Sans Condensed, Open Sans, sans-serif'
         },
         '& img': {
             width: 65,
@@ -155,7 +156,7 @@ const LandingPage = ({history}) => {
         })
         .then( response => response.json() )
         .then( response => {
-            console.log(response);
+            // console.log(response);
             setLoading(false);
             setContent({
                 circumplex: response.acf.circumplex,
