@@ -21,6 +21,7 @@ export default {
     ethnicity: '',
     education: '',
     employment: '',
-    progress: 0
+    progress: 0,
+    questionCount: 1
 };
   

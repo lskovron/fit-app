@@ -17,7 +17,7 @@ const useStyles = makeStyles(()=>({
     totalProgress: {
         textAlign: 'right',
         fontFamily: 'Open Sans Condensed,Open Sans, sans-serif',
-        fontSize: 10,
+        fontSize: 17,
         marginRight: '8%'
     },
     progressSegment: {

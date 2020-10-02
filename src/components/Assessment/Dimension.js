@@ -32,7 +32,7 @@ const useStyles = makeStyles(()=>({
 }))
 
 const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => {
-    const [{answers,progress},setState] = useStateValue();
+    const [{answers,progress,questionCount},setState] = useStateValue();
     const classes = useStyles();
 
     const currentDimension = ASSESSMENT_ORDER[currentDimensionIndex];
@@ -56,9 +56,15 @@ const Dimension = ({history,currentDimensionIndex,setCurrentDimensionIndex}) => 
         // eslint-disable-next-line
     },[currentDimension])
 
+    
     const nextSection = () => {
         scrollToTop(200);
-        setState({progress: progress+1});
+        const totalQs = subdimentions[currentSubdimentionIndex].acf.questions.length;
+        setState({
+            questionCount: questionCount+totalQs,
+            progress: progress+1
+        });
+
 
         setCanContinue(false);
         if( subdimentions.length > currentSubdimentionIndex + 1){
