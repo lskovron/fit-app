@@ -18,6 +18,7 @@ const Questionnaire = () => {
             <div style={{padding: 40,paddingTop:0}}>
                 <h1 style={{textAlign:'center',marginBottom:30}}>Assessment</h1>
                 <h2 style={{
+                    display: 'none',
                     textAlign: 'center',
                     fontFamily: 'Open Sans, lato, sans-serif',
                     fontSize: '1.8rem',
