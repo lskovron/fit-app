@@ -15,7 +15,7 @@ import SubFooter from './SubFooter';
 import Footer from './Footer';
 import Header from './Header';
 
-const useStyles = makeStyles(()=>({
+const useStyles = makeStyles((theme)=>({
     form: {
         padding: '0 60px 30px',
         '& h1': {
@@ -83,6 +83,9 @@ const useStyles = makeStyles(()=>({
         background: '#79bdf2',
         '&:hover': {
             background: '#1e7ce1'
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: 25
         }
     }
 }))

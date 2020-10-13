@@ -8,14 +8,26 @@ import { ASSESSMENT_ORDER, COLORS } from '../../constants.js'
 
 import Dimension from './Dimension';
 import ProgressBar from './ProgressBar';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme)=>({
+    pageWrap: {
+        padding: 40,
+        paddingTop:0,
+        [theme.breakpoints.down('xs')]:{
+            padding: '40px 15px'
+        }
+    }
+}))
 
 const Questionnaire = () => {
+    const classes = useStyles();
     const [currentDimensionIndex,setCurrentDimensionIndex] = useState(0);
 
     return (
         <>
             <Header />
-            <div style={{padding: 40,paddingTop:0}}>
+            <div className={classes.pageWrap}>
                 <h1 style={{textAlign:'center',marginBottom:30}}>Assessment</h1>
                 <h2 style={{
                     display: 'none',

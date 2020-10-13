@@ -8,7 +8,7 @@ import { withRouter } from 'react-router';
 import { Button, makeStyles } from '@material-ui/core';
 import { postsUrl } from '../Config';
 
-const useStyles = makeStyles(()=>({
+const useStyles = makeStyles((theme)=>({
     button: {
         display: 'block',
         margin: '0 auto',
@@ -27,7 +27,10 @@ const useStyles = makeStyles(()=>({
             background:'#a0a9b3',
             color: 'white',
         },
-        marginBottom: 50
+        marginBottom: 50,
+        [theme.breakpoints.down('xs')]: {
+            fontSize: 25
+        }
     }
 }))
 

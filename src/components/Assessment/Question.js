@@ -27,6 +27,11 @@ const useStyles = makeStyles((theme)=>({
         paddingBottom: 15,
         fontSize: 22,
         color: '#576a7c'
+    },
+    label: {
+        [theme.breakpoints.down('xs')]: {
+            margin: '0 7px 10px'
+        }
     }
 }))
 
@@ -68,11 +73,11 @@ const Question = ({text,reverse,subdimension,dimension,index,totalQs,setCanConti
             <FormControl component="fieldset" style={{display:'block'}}>
                 <FormLabel component="legend" className={classes.question}>{index+questionCount}. {text}</FormLabel>
                 <RadioGroup row aria-label="Marital Status" name="marital" value={answer} onChange={selectAnswer}>
-                    <FormControlLabel labelPlacement="bottom" value={reverse ? 5 : 1} control={<Radio />} label="1" />
-                    <FormControlLabel labelPlacement="bottom" value={reverse ? 4 : 2} control={<Radio />} label="2" />
-                    <FormControlLabel labelPlacement="bottom" value={reverse ? 3 : 3} control={<Radio />} label="3" />
-                    <FormControlLabel labelPlacement="bottom" value={reverse ? 2 : 4} control={<Radio />} label="4" />
-                    <FormControlLabel labelPlacement="bottom" value={reverse ? 1 : 5} control={<Radio />} label="5" />
+                    <FormControlLabel className={classes.label} labelPlacement="bottom" value={reverse ? 5 : 1} control={<Radio />} label="1" />
+                    <FormControlLabel className={classes.label} labelPlacement="bottom" value={reverse ? 4 : 2} control={<Radio />} label="2" />
+                    <FormControlLabel className={classes.label} labelPlacement="bottom" value={reverse ? 3 : 3} control={<Radio />} label="3" />
+                    <FormControlLabel className={classes.label} labelPlacement="bottom" value={reverse ? 2 : 4} control={<Radio />} label="4" />
+                    <FormControlLabel className={classes.label} labelPlacement="bottom" value={reverse ? 1 : 5} control={<Radio />} label="5" />
                     <div style={{margin:'25px 40px 0px',flexGrow:1,borderTop:'1px solid #a0a9b3'}}></div>
                     <FormControlLabel labelPlacement="bottom" value="skip" control={<Radio />} label={`n/a`} />
                 </RadioGroup>

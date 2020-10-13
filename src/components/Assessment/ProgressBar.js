@@ -29,7 +29,8 @@ const useStyles = makeStyles(()=>({
         '& img': {
             filter: 'grayscale(1)',
             opacity: .4,
-            width: 70
+            width: 70,
+            maxWidth: '100%'
         }
     },
     cog: {
